@@ -122,14 +122,15 @@ export default function HeroSection() {
                     {slide.description}
                   </motion.p>
                   <motion.button
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-full text-base md:text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                    onClick={() => router.push(slide.buttonLink)}
-                    initial={{ y: 20 }}
-                    animate={{ y: 0 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    {slide.buttonText}
-                  </motion.button>
+  className="bg-gradient-to-r from-[#66CBF8] to-[#538FDA] shadow hover:from-[#538FDA] hover:to-[#3b6da6] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-full text-base md:text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#66CBFB] focus:ring-opacity-50"
+  onClick={() => router.push(slide.buttonLink)}
+  initial={{ y: 20 }}
+  animate={{ y: 0 }}
+  transition={{ delay: 0.4 }}
+>
+  {slide.buttonText}
+</motion.button>
+                   
                 </div>
               </motion.div>
             </SwiperSlide>
