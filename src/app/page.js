@@ -6,6 +6,7 @@ import ProjectsSection from '@/components/MainPage/ProjectSection';
 import TeamSection from '@/components/MainPage/TeamSection';
 import ClientReviewSection from '@/components/MainPage/ReviewSection';
 import TechStack from '@/components/MainPage/TechStackSection';
+import About from '@/components/MainPage/About';
 
 
 
@@ -19,6 +20,7 @@ export default function Home() {
    
      
       <HeroSection />
+      <About />
       <ProjectsSection />
       <TeamSection />
       <ClientReviewSection />
