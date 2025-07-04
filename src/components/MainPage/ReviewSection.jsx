@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
+import { useState } from 'react';
 
 const reviews = [
   {
@@ -25,49 +26,57 @@ const reviews = [
 ];
 
 const ReviewCard = ({ quote, name, rating }) => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 w-full sm:w-[250px] min-h-[285px] flex flex-col justify-between text-left">
+    <div className="bg-white shadow-md rounded-[5px] p-4 w-[253px] h-auto min-h-[285px] flex flex-col justify-between text-left">
       <div>
         <div className="text-blue-600 text-xl mb-2">
           <FaQuoteLeft />
         </div>
-        <p className="text-sm text-gray-800 leading-relaxed">{quote}</p>
+        <p className={`text-xs text-gray-800 leading-relaxed ${expanded ? '' : 'line-clamp-6'}`}>
+          {quote}
+        </p>
+        <button
+          className="mt-2 text-[10px] text-blue-600 underline"
+          onClick={() => setExpanded(!expanded)}
+        >
+          {expanded ? 'Read less' : 'Read more'}
+        </button>
       </div>
 
       <div className="mt-4">
-        <div className="flex items-center text-yellow-500 mb-1">
-          {Array(rating).fill().map((_, i) => (
-            <FaStar key={i} />
-          ))}
+        <div className="flex items-center text-yellow-500 mb-1 text-sm">
+          {Array(rating).fill().map((_, i) => <FaStar key={i} />)}
         </div>
-        <p className="font-semibold text-gray-900 text-sm">{name}</p>
+        <p className="font-semibold text-sm text-gray-900">{name}</p>
       </div>
     </div>
   );
 };
 
-
-
 export default function ClientReviewSection() {
   return (
     <section className="py-16 bg-[#F3F4F6]">
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Our Clients’ Satisfaction is Our Top Priority</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-6">
+        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+          Our Clients’ Satisfaction is Our Top Priority
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6 text-sm">
           We have a reputation for helping clients around the world find success on their most important projects
         </p>
 
-        {/* Stats */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-4 text-sm text-gray-700">
-          <div>🌐 14+ Countries Served</div>
-          <div>⚙️ 25+ Clients Served</div>
+        {/* Stats Section */}
+        <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-700 mb-2">
+          <span>🌐 <strong>14+</strong> Countries Served</span>
+          <span>⚙️ <strong>25+</strong> Clients Served</span>
         </div>
 
-        <p className="text-sm text-gray-700 mb-8">
+        <p className="text-sm text-[#574D4D] mb-10">
           Our customers say <strong>Excellent</strong> ⭐⭐⭐⭐⭐ 4.8 out of 5 based on 1,691 reviews
         </p>
 
-        {/* Review Cards */}
+        {/* Review Cards Grid */}
         <div className="flex flex-wrap justify-center gap-6">
           {reviews.map((review, index) => (
             <ReviewCard key={index} {...review} />
