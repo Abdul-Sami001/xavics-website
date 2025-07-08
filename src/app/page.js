@@ -7,6 +7,7 @@ import TeamSection from '@/components/MainPage/TeamSection';
 import ClientReviewSection from '@/components/MainPage/ReviewSection';
 import TechStack from '@/components/MainPage/TechStackSection';
 import About from '@/components/MainPage/About';
+import ContactForm from '@/components/contact/Contact';
 
 
 
@@ -25,6 +26,10 @@ export default function Home() {
       <TeamSection />
       <ClientReviewSection />
       <TechStack/>
+      <ContactForm />
+      
+      {/* Add any additional sections or components here */}
+
 
     </>
   );
